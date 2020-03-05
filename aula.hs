@@ -53,7 +53,22 @@ myOr3 :: Bool -> Bool -> Bool
 myOr3 True  _ = True
 myOr3 False x = x
 
+-- Fatorial
 fat :: Int -> Int
 fat n
  | n == 0 = 1
  | otherwise = n * fat(n-1)  
+
+-- Quatro números iguais
+all4Equal :: Int -> Int -> Int -> Int -> Bool
+all4Equal x y z w
+ | x == y && y == z && z == w = True
+ | otherwise = False
+
+
+equalCount :: Int -> Int -> Int -> Int -> Int
+equalCount x y z w
+ | (x == y) && (y == z) && (z == w) = 4
+ | ((x == y) && (y == z)) || ((x == y) && (y == w)) || ((x == w) && (w == z)) || ((w == y) && (y == z)) = 3
+ | (x == y) || (y == z) || (z == w) || (w == x) = 2
+ | otherwise = 0
