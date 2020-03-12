@@ -130,3 +130,50 @@ equalCount x y z w
  | (x == y) || (y == z) || (z == w) || (w == x) = 2
  | otherwise = 0
 
+--ANOTAÇÃO FALTANDO, PRECISA CONCLUIR / AULA 04
+addEspacos :: Int -> String
+addEspacos n 
+ | n == 0 = " "
+ | n > 0 = " " ++ addEspacos (n-1)
+
+imprimeSemanas :: Int -> String
+imprimeSemanas n 
+ | n == 0 = show 0 ++ " " ++ show (vendas 0)
+ | n > 0 = show n ++ " " ++ show (vendas n) ++ " " ++ imprimeSemanas (n-1)
+ 
+
+-- Exemplo do segundo grau
+
+oneRoot :: Float -> Float -> Float -> Float
+oneRoot a b c = -b / (2.0 * a)
+
+twoRoots :: Float -> Float -> Float -> (Float, Float)
+twoRoots a b c = (d - e, d + e)
+  where 
+    d = -b / (2.0 * a)
+    e = sqrt(b ^ 2 - 4.0 * a * c)/(2.0 * a)
+
+roots :: Float -> Float -> Float -> String
+roots a b c 
+ | b ^ 2 ==  4.0 * a * c = show (oneRoot a b c)
+ | b ^ 2 > 4.0 * a * c = show f ++ " " ++ show s
+ | otherwise = "no roots"
+   where (f,s) = twoRoots a b c
+
+-- Tuplas
+
+extraiValor :: (Bool, (Int, Bool), Char) -> Char
+--  extraiValor (b1, (i, b2), c) = c
+extraiValor (_ , _ , c) = c
+
+-- Sinonimo de tipos
+
+type Nome = String
+type Idade = Int
+type Pessoa = (Nome, Idade)
+
+nome :: Pessoa -> Nome
+-- nome p = fst p
+nome (n, _) = n
+
+
